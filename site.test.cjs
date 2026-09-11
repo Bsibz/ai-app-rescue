@@ -16,12 +16,22 @@ assert.match(html, /<link rel="icon" href="\.\/favicon\.svg" type="image\/svg\+x
 assert.match(html, /<link rel="apple-touch-icon" href="\.\/favicon\.svg" \/>/);
 assert.match(html, /<noscript>/i);
 assert.match(html, /nothing is submitted to a server/i);
+assert.doesNotMatch(html, /90%\s*done/i);
+assert.match(html, /hour 2/i);
+assert.match(html, /48-hour delivery clock/i);
+assert.match(html, /\$125 USD booking payment/i);
+assert.match(html, /No production credentials/i);
+assert.match(html, /AI-assisted source processing requires explicit written permission/i);
+assert.match(html, /Example CLI output — not a customer incident/i);
+assert.match(html, /PreviewFence/);
+assert.doesNotMatch(html, /customer(?:s)?\s+(?:use|trust|rely)/i);
 
 const allIds = Array.from(html.matchAll(/\bid="([^"]+)"/g), (match) => match[1]);
 const ids = new Set(allIds);
 assert.equal(allIds.length, ids.size, 'duplicate HTML id');
 for (const id of [
   'scope',
+  'booking',
   'proof',
   'intake',
   'intake-form',

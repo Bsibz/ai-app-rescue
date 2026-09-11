@@ -171,6 +171,12 @@
     .proof a { text-decoration: none; }
     .proof .card:hover { border-color: #3c495f; }
     .proof .tag { color: var(--accent); font-size: 13px; margin-top: 14px; }
+    .proof-feature { display: grid; grid-template-columns: .9fr 1.1fr; gap: 16px; align-items: stretch; }
+    .proof-example { background: #0b0f16; border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+    .proof-example .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .07em; font-weight: 750; }
+    .proof-example pre { margin: 12px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; color: #cbd2de; font: 12px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .proof-links { margin: 18px 0 0; color: var(--muted); font-size: 14px; }
+    .proof-links a { color: var(--accent-2); text-decoration: underline; text-underline-offset: 3px; }
 
     .intake-shell {
       background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012));
@@ -281,7 +287,7 @@
 
     @media (max-width: 820px) {
       .hero { grid-template-columns: 1fr; padding-top: 58px; }
-      .grid, .deliverables, .intake-grid, .form-grid { grid-template-columns: 1fr; }
+      .grid, .deliverables, .intake-grid, .form-grid, .proof-feature { grid-template-columns: 1fr; }
       .field.full { grid-column: auto; }
       .preview-card { position: static; }
       .nav-links a:not(.button) { display: none; }
@@ -294,6 +300,7 @@
       <div class="brand">Bsibz / AI App Rescue</div>
       <div class="nav-links">
         <a href="#scope">Scope</a>
+        <a href="#booking">Booking</a>
         <a href="#proof">Proof</a>
         <a href="#intake">Intake</a>
         <a class="button" href="mailto:kickbsibz@gmail.com?subject=AI%20App%20Rescue%20%E2%80%94%20%24250%20fixed-scope%20repair">Email Brandon</a>
@@ -304,7 +311,7 @@
       <section class="hero">
         <div>
           <div class="eyebrow"><span class="dot"></span> Available for bounded repair work</div>
-          <h1>Your AI-built app is 90% done. I fix the part that won’t ship.</h1>
+          <h1>One broken workflow. Patched, tested, handed back.</h1>
           <p class="lede">One agreed, reproducible TypeScript / Node.js workflow problem. Patch it, test it, prove it, hand it back.</p>
           <div class="cta-row">
             <a class="button primary" href="#intake">Describe the broken workflow →</a>
@@ -353,28 +360,50 @@
         </div>
       </section>
 
+      <section id="booking">
+        <div class="section-head">
+          <h2>How a $250 repair actually starts</h2>
+          <p>No mystery engagement. Scope, payment, access, and acceptance are written down before source access or coding starts.</p>
+        </div>
+        <div class="deliverables">
+          <ul class="checklist">
+            <li><span class="check">1</span><span>You send the shortest reproducible path. I confirm in writing whether it fits the fixed scope.</span></li>
+            <li><span class="check">2</span><span>$125 USD booking payment is due before source access; the remaining $125 USD is due after the agreed acceptance demo passes.</span></li>
+            <li><span class="check">3</span><span>The 48-hour delivery clock starts only after booking payment, required intake, and working source/test access are all available.</span></li>
+            <li><span class="check">4</span><span>If there is no stable reproduction or bounded fix path by hour 2, work stops and the booking payment is fully refundable.</span></li>
+            <li><span class="check">5</span><span>Hard stop at 6 hours. Any expansion is a separate written quote — no silent hourly overrun.</span></li>
+          </ul>
+          <div class="boundary">
+            <strong>Least privilege from the start.</strong>
+            <p>No production credentials, live payment keys, customer secrets, or live production mutations. Work uses an isolated checkout or copy with sanitized test data and named test services. AI-assisted source processing requires explicit written permission and agreed provider/data restrictions before customer source is processed. For agency overflow, I do not contact your clients.</p>
+          </div>
+        </div>
+      </section>
+
       <section id="proof" class="proof">
         <div class="section-head">
-          <h2>Public proof</h2>
-          <p>Small tools built around the same habit: make runtime and engineering claims earn their evidence.</p>
+          <h2>Public proof that matches the work</h2>
+          <p>PreviewFence is a small TypeScript tool built around a repair-adjacent failure mode: a preview or staging deploy accidentally pointing at a protected production backend.</p>
         </div>
-        <div class="grid">
+        <div class="proof-feature">
           <a class="card" href="https://github.com/Bsibz/preview-fence" rel="noopener">
             <strong>PreviewFence</strong>
-            <p>Fail-closed CI check that catches non-production deploys using a protected production backend.</p>
+            <p>Fail-closed CI check for non-production deploys using a protected production backend. Its public README documents the evidence boundary, PASS/BLOCK/UNKNOWN outcomes, and known limits.</p>
             <div class="tag">TypeScript · CI · Supabase safety →</div>
           </a>
-          <a class="card" href="https://github.com/Bsibz/contribgate" rel="noopener">
-            <strong>ContribGate</strong>
-            <p>Read-only GitHub issue preflight with deterministic evidence-backed outcomes.</p>
-            <div class="tag">TypeScript · GitHub · deterministic tooling →</div>
-          </a>
-          <a class="card" href="https://github.com/Bsibz/runtime-receipt" rel="noopener">
-            <strong>RuntimeReceipt</strong>
-            <p>Offline consistency checks for agent-run completion, identity, timing, and freshness.</p>
-            <div class="tag">Agent reliability · evidence checking →</div>
-          </a>
+          <div class="proof-example">
+            <div class="label">Example CLI output — not a customer incident</div>
+            <pre>PreviewFence
+Status       BLOCK
+Context      preview
+Branch       feat/signup
+Backend      supabase
+  protected  yes
+Decision     BLOCK
+Reason       Non-production context (preview) is using a protected production Supabase project.</pre>
+          </div>
         </div>
+        <p class="proof-links">Other public tools show the same evidence habit, but they are not the repair you are buying: <a href="https://github.com/Bsibz/contribgate" rel="noopener">ContribGate</a> (issue preflight) and <a href="https://github.com/Bsibz/runtime-receipt" rel="noopener">RuntimeReceipt</a> (agent-run receipt checks).</p>
       </section>
 
       <section id="intake">
