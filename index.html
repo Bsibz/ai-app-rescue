@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A fixed-scope $250 USD TypeScript/Node repair for one reproducible workflow problem in an AI-built or hand-built web app." />
+  <meta name="theme-color" content="#090b10" />
+  <title>AI App Rescue — $250 Fixed-Scope Engineering Repair</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #090b10;
+      --panel: #11151d;
+      --panel-2: #151a24;
+      --text: #f5f7fb;
+      --muted: #a7b0c0;
+      --line: #242c3a;
+      --accent: #7cf2a0;
+      --accent-2: #b7ffcb;
+      --danger: #ffcb6b;
+      --max: 1040px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(124, 242, 160, 0.10), transparent 30rem),
+        radial-gradient(circle at 90% 18%, rgba(105, 155, 255, 0.08), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+    .wrap { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .brand { color: var(--text); font-weight: 750; letter-spacing: -0.02em; }
+    .nav-links { display: flex; gap: 18px; align-items: center; }
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { color: var(--text); }
+
+    .hero {
+      padding: 84px 0 64px;
+      display: grid;
+      grid-template-columns: 1.45fr 0.75fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 20px rgba(124,242,160,.75); }
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(44px, 7vw, 78px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+    .lede {
+      margin: 26px 0 0;
+      max-width: 700px;
+      color: var(--muted);
+      font-size: clamp(18px, 2.2vw, 22px);
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 750;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+    .button.primary {
+      background: var(--accent);
+      color: #07110a;
+      border-color: var(--accent);
+    }
+    .button:hover { transform: translateY(-1px); }
+
+    .price-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.25);
+    }
+    .price-card .label { color: var(--muted); font-size: 13px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
+    .price { margin: 10px 0 4px; font-size: 52px; line-height: 1; letter-spacing: -.05em; font-weight: 800; }
+    .price small { color: var(--muted); font-size: 15px; font-weight: 650; letter-spacing: 0; }
+    .price-card p { color: var(--muted); margin: 14px 0 0; }
+
+    section { padding: 54px 0; }
+    .section-head { max-width: 720px; margin-bottom: 26px; }
+    h2 { margin: 0 0 10px; font-size: clamp(30px, 4vw, 44px); letter-spacing: -.04em; line-height: 1.08; }
+    .section-head p { margin: 0; color: var(--muted); font-size: 17px; }
+
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .card strong { display: block; margin-bottom: 7px; font-size: 16px; }
+    .card p { margin: 0; color: var(--muted); }
+    .card code { color: var(--accent-2); }
+
+    .deliverables {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .checklist { margin: 0; padding: 0; list-style: none; }
+    .checklist li {
+      display: flex;
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
+    .checklist li:last-child { border-bottom: 0; }
+    .check { color: var(--accent); font-weight: 900; }
+
+    .boundary {
+      border: 1px solid rgba(255,203,107,.28);
+      background: rgba(255,203,107,.055);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .boundary strong { color: #ffe0a0; }
+    .boundary p { color: var(--muted); margin-bottom: 0; }
+
+    .proof a { text-decoration: none; }
+    .proof .card:hover { border-color: #3c495f; }
+    .proof .tag { color: var(--accent); font-size: 13px; margin-top: 14px; }
+
+    .close {
+      margin: 40px 0 70px;
+      background: linear-gradient(135deg, rgba(124,242,160,.11), rgba(123,158,255,.08));
+      border: 1px solid #2c3a34;
+      border-radius: 22px;
+      padding: clamp(26px, 5vw, 46px);
+      text-align: center;
+    }
+    .close p { color: var(--muted); max-width: 660px; margin: 14px auto 24px; }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 28px 0 44px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; padding-top: 58px; }
+      .grid, .deliverables { grid-template-columns: 1fr; }
+      .nav-links a:not(.button) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <div class="brand">Bsibz / AI App Rescue</div>
+      <div class="nav-links">
+        <a href="#scope">Scope</a>
+        <a href="#proof">Proof</a>
+        <a class="button" href="mailto:kickbsibz@gmail.com?subject=AI%20App%20Rescue%20%E2%80%94%20%24250%20fixed-scope%20repair">Email Brandon</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Available for bounded repair work</div>
+          <h1>Your AI-built app is 90% done. I fix the part that won’t ship.</h1>
+          <p class="lede">One agreed, reproducible TypeScript / Node.js workflow problem. Patch it, test it, prove it, hand it back.</p>
+          <div class="cta-row">
+            <a class="button primary" href="mailto:kickbsibz@gmail.com?subject=AI%20App%20Rescue%20%E2%80%94%20%24250%20fixed-scope%20repair&body=App%20or%20repo%3A%0AWhat%20is%20broken%3A%0AHow%20to%20reproduce%3A%0AExpected%20behavior%3A">Send the broken workflow →</a>
+            <a class="button" href="https://github.com/Bsibz">See public engineering work</a>
+          </div>
+        </div>
+
+        <aside class="price-card" aria-label="Fixed scope price">
+          <div class="label">Fixed scope</div>
+          <div class="price">$250 <small>USD</small></div>
+          <p>For one agreed, reproducible workflow issue. If it is larger than the fixed scope, I’ll say so before the work expands.</p>
+        </aside>
+      </section>
+
+      <section id="scope">
+        <div class="section-head">
+          <h2>Good fits</h2>
+          <p>Especially useful for AI-generated or fast-moving web apps built with Lovable, Bolt, v0, Replit, or a normal React / Next.js / Node stack.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><strong>API / backend path</strong><p>A request fails, returns the wrong thing, or never reaches the service it should.</p></div>
+          <div class="card"><strong>Form / checkout / auth flow</strong><p>The UI looks finished but the real submission, session, callback, or persistence path breaks.</p></div>
+          <div class="card"><strong>Build / CI failure</strong><p>A deploy, typecheck, test gate, environment boundary, or production build is blocking release.</p></div>
+          <div class="card"><strong>Webhook / sync bug</strong><p>A third-party integration works sometimes, duplicates work, or silently drops state.</p></div>
+          <div class="card"><strong>Preview / production mix-up</strong><p>A staging or preview environment is accidentally talking to production infrastructure.</p></div>
+          <div class="card"><strong>“AI says it’s fixed” bug</strong><p>The code changed, but the workflow still fails. I work from reproduction and evidence, not completion claims.</p></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <h2>What you get</h2>
+          <p>A small repair should end with something reviewable, not a vague “done.”</p>
+        </div>
+        <div class="deliverables">
+          <ul class="checklist">
+            <li><span class="check">✓</span><span>The patch for the agreed workflow</span></li>
+            <li><span class="check">✓</span><span>A regression test where practical</span></li>
+            <li><span class="check">✓</span><span>Verification evidence showing the fixed path</span></li>
+            <li><span class="check">✓</span><span>A short handover: root cause, change, remaining risk</span></li>
+          </ul>
+          <div class="boundary">
+            <strong>Scope stays bounded.</strong>
+            <p>This is not a redesign, a mystery rewrite, or an open-ended feature engagement. If the bug reveals a larger architectural job, I stop at the boundary and explain the next options before expanding scope.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="proof" class="proof">
+        <div class="section-head">
+          <h2>Public proof</h2>
+          <p>Small tools built around the same habit: make runtime and engineering claims earn their evidence.</p>
+        </div>
+        <div class="grid">
+          <a class="card" href="https://github.com/Bsibz/preview-fence">
+            <strong>PreviewFence</strong>
+            <p>Fail-closed CI check that catches non-production deploys using a protected production backend.</p>
+            <div class="tag">TypeScript · CI · Supabase safety →</div>
+          </a>
+          <a class="card" href="https://github.com/Bsibz/contribgate">
+            <strong>ContribGate</strong>
+            <p>Read-only GitHub issue preflight with deterministic evidence-backed outcomes.</p>
+            <div class="tag">TypeScript · GitHub · deterministic tooling →</div>
+          </a>
+          <a class="card" href="https://github.com/Bsibz/runtime-receipt">
+            <strong>RuntimeReceipt</strong>
+            <p>Offline consistency checks for agent-run completion, identity, timing, and freshness.</p>
+            <div class="tag">Agent reliability · evidence checking →</div>
+          </a>
+        </div>
+      </section>
+
+      <section class="close">
+        <h2>Have one workflow that should work and doesn’t?</h2>
+        <p>Send the repo/app context, the failing path, how to reproduce it, and what success should look like. I’ll tell you whether it fits the fixed scope.</p>
+        <a class="button primary" href="mailto:kickbsibz@gmail.com?subject=AI%20App%20Rescue%20%E2%80%94%20%24250%20fixed-scope%20repair&body=App%20or%20repo%3A%0AWhat%20is%20broken%3A%0AHow%20to%20reproduce%3A%0AExpected%20behavior%3A">Email kickbsibz@gmail.com</a>
+      </section>
+    </main>
+
+    <footer>
+      <span>Brandon / Bsibz · Ontario, Canada · Eastern Time</span>
+      <span>TypeScript · Node.js · APIs · debugging · reliability</span>
+    </footer>
+  </div>
+</body>
+</html>
