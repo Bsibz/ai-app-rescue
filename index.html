@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="A fixed-scope $250 USD TypeScript/Node repair for one reproducible workflow problem in an AI-built or hand-built web app." />
   <meta name="theme-color" content="#090b10" />
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="./favicon.svg" />
   <title>AI App Rescue — $250 Fixed-Scope Engineering Repair</title>
   <style>
     :root {
@@ -37,6 +39,7 @@
     }
 
     a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
     button, input, textarea { font: inherit; }
     .wrap { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; }
 
@@ -182,6 +185,7 @@
       gap: 24px;
       align-items: start;
     }
+    .intake-grid > * { min-width: 0; }
     .form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -237,6 +241,17 @@
       color: #cbd2de;
       font: 12px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     }
+    .noscript-note {
+      margin: 0 0 18px;
+      border: 1px solid rgba(255,203,107,.28);
+      background: rgba(255,203,107,.055);
+      border-radius: 13px;
+      padding: 13px 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .noscript-note strong { color: #ffe0a0; }
+    .noscript-note a { color: var(--accent-2); }
 
     .close {
       margin: 40px 0 70px;
@@ -259,6 +274,11 @@
       font-size: 14px;
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button:hover { transform: none; }
+    }
+
     @media (max-width: 820px) {
       .hero { grid-template-columns: 1fr; padding-top: 58px; }
       .grid, .deliverables, .intake-grid, .form-grid { grid-template-columns: 1fr; }
@@ -270,7 +290,7 @@
 </head>
 <body>
   <div class="wrap">
-    <nav>
+    <nav aria-label="Primary">
       <div class="brand">Bsibz / AI App Rescue</div>
       <div class="nav-links">
         <a href="#scope">Scope</a>
@@ -365,7 +385,12 @@
 
         <div class="intake-shell">
           <div class="intake-grid">
-            <form id="intake-form" autocomplete="off" novalidate>
+            <form id="intake-form" action="mailto:kickbsibz@gmail.com" method="post" enctype="text/plain" autocomplete="off" aria-describedby="intake-privacy">
+              <noscript>
+                <div class="noscript-note" role="note">
+                  <strong>JavaScript is disabled.</strong> The live preview and small client-side secret guard are unavailable. You can use <a href="mailto:kickbsibz@gmail.com?subject=AI%20App%20Rescue%20%E2%80%94%20%24250%20fixed-scope%20repair">this email link</a> and include the project, stack, broken workflow, reproduction steps, and expected behavior manually. Do not include credentials or private customer data.
+                </div>
+              </noscript>
               <div class="form-grid">
                 <div class="field">
                   <label for="project">Project / app name *</label>
@@ -379,8 +404,8 @@
 
                 <div class="field full">
                   <label for="url">Public app or repo URL</label>
-                  <input id="url" name="url" type="url" maxlength="260" placeholder="https://github.com/... or https://..." />
-                  <span class="hint">Optional. Only include something I can access without credentials.</span>
+                  <input id="url" name="url" type="url" maxlength="260" placeholder="https://github.com/... or https://..." aria-describedby="url-hint" />
+                  <span id="url-hint" class="hint">Optional. Only include something I can access without credentials.</span>
                 </div>
 
                 <div class="field full">
@@ -390,8 +415,8 @@
 
                 <div class="field full">
                   <label for="reproduce">How do I reproduce it? *</label>
-                  <textarea id="reproduce" name="reproduce" maxlength="900" required placeholder="1. Sign in with a normal test account. 2. Add an item. 3. Complete checkout. 4. Return to the order page..."></textarea>
-                  <span class="hint">Keep it to the shortest repeatable path. Do not paste private logs or customer data.</span>
+                  <textarea id="reproduce" name="reproduce" maxlength="900" required placeholder="1. Sign in with a normal test account. 2. Add an item. 3. Complete checkout. 4. Return to the order page..." aria-describedby="reproduce-hint"></textarea>
+                  <span id="reproduce-hint" class="hint">Keep it to the shortest repeatable path. Do not paste private logs or customer data.</span>
                 </div>
 
                 <div class="field full">
@@ -405,7 +430,7 @@
                 </div>
               </div>
 
-              <div class="privacy-note">
+              <div id="intake-privacy" class="privacy-note">
                 <strong>Do not paste secrets.</strong> No passwords, API keys, tokens, private keys, production credentials, or private customer data. The page includes a small client-side heuristic that blocks a few obvious credential shapes, but you are still responsible for removing sensitive values.
               </div>
 
@@ -413,7 +438,7 @@
                 <button class="button primary" type="submit">Open prefilled email →</button>
                 <button class="button" type="button" id="copy-intake">Copy summary</button>
               </div>
-              <div id="intake-status" class="status" role="status" aria-live="polite" hidden></div>
+              <div id="intake-status" class="status" role="status" aria-live="polite" tabindex="-1" hidden></div>
             </form>
 
             <aside class="preview-card" aria-label="Email preview">
