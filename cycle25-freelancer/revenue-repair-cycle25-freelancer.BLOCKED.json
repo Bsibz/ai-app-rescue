@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "cycle": 25,
+    "slot": "12:00-ET",
+    "fired_at": "2026-09-17T16:25:05Z",
+    "written_at": "2026-09-17T17:05:00Z",
+    "lane": "freelancer",
+    "offer": "ONE WORKFLOW REPAIR $250 USD ≤6h ≤2bd",
+    "owner": "Brandon/Bsibz Ontario HS-only",
+    "bar": "OPEN + Payment/Deposit preferred; TS/Node/Next/React/API/Stripe/webhook/n8n/auth; $30-500",
+    "sources": ["freelancer_api_active_webfetch_partial_only"],
+    "api_unique_projects": null,
+    "skipped_known_numeric_from_api": null,
+    "new_from_api": null,
+    "new_strong": 0,
+    "new_weak": 0,
+    "rejected_this_cycle": 0,
+    "result": "BLOCKED_SHELL_DOWN",
+    "blockers": [
+      "box_shell_spawn_failed_entire_window",
+      "box_read_failed_after_initial_peek",
+      "hunt_api.py_not_run",
+      "cannot_write_/workspace/revenue-repair-cycle25-freelancer.json",
+      "cloudagent_new_repo_needs_origin_namespace",
+      "cloudagent_existing_repo_vitess_pool_exhausted",
+      "known-ids/dnr_not_loadable_for_full_pipeline"
+    ],
+    "skipped_known_or_weak_queue": [],
+    "closest_near_misses": [
+      {
+        "id": "40717408",
+        "title": "Fix Form Styling Bugs",
+        "reason": "OPEN CSS/HTML bugfix but budget max $30 under $30–500 bar; not TS/Node one-defect; sealed bids"
+      },
+      {
+        "id": "40717492",
+        "title": "Fix Search Console Index Errors",
+        "reason": "Cursor-built site indexing fix $250–750 but SEO/WP/PHP tags + ~324-bid lottery; not TS/Node workflow repair"
+      },
+      {
+        "id": "40716960",
+        "title": "Ultra-Fast Discord URL Sniper",
+        "reason": "NEW-ish Node/JS but vanity-URL sniper = cheats/ESP reject; hourly $3–5"
+      }
+    ],
+    "partial_webfetch_note": "Sampled queries: bug fix, typescript, next.js, fix stripe, stripe webhook, n8n, webhook fix, auth bug, hotfix. No STRONG/WEAK ONE WORKFLOW REPAIR survivors in sampled NEW-ish ids. Hotfix returned 0 projects. Full 75×2 hunt_api pipeline NOT executed."
+  },
+  "candidates": [],
+  "rejected_this_cycle": []
+}
